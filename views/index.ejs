@@ -1,0 +1,132 @@
+<% if(infor.announcement==1){ %>
+  <%- include('confirm') -%>
+    <%} %>
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+        <title>E-Wallet</title>
+      </head>
+
+      <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-pink">
+          <a class="navbar-brand" href="/">
+            <img src="https://i.pinimg.com/564x/6c/c6/0f/6cc60ffa11548e46795ac194a5482803.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            Wallet
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="/credit-card">Payment<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/withdraw-money">Withdraw Money<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/sendMoney">Transfer Money<span class="sr-only">(current)</span></a>
+              </li>
+  
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="/buy-card" id="navbarDropdown" role="button">
+                  Buy phone card
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/history-trade">Trade history</a>
+              </li>
+            </ul>
+        
+          </div>
+          <li class="nav-item align-items-center d-none d-md-flex col-1" >
+            <li class="nav-item dropdown">
+              <a class="nav-link pr-0" href="" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <div class="media align-items-center">
+                  <span class="avatar avatar-sm rounded-circle">
+                    <img alt="Image placeholder" src="<%= infor.Avatar %>"
+                      style="width: 50px; height:50px; border-radius: 50px;">
+                  </span>
+                  <span class="media align-items-center">
+                    <%= (infor.wallet).toLocaleString('it-IT', {style : 'currency' , currency : 'VND' }) %>
+                  </span>
+
+
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                <div class=" dropdown-header noti-title">
+                  <% var name=infor.name.split(" ") %>
+              <h6 class=" text-overflow m-0">Welcome <%= name[2] %>
+                      </h6>
+                </div>
+                <a href="/users/profile" class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  <span>My profile</span>
+                </a>
+                <a href="/" onclick="createItem()" class="dropdown-item" id="change_pass">
+                  <i class="ni ni-settings-gear-65"></i>
+                  <span>Change Password</span>
+                </a>
+                <a href="/profile" class="dropdown-item">
+                  <i class="ni ni-calendar-grid-58"></i>
+                  <span>Activity</span>
+                </a>
+                <a href="/profile" class="dropdown-item">
+                  <i class="ni ni-support-16"></i>
+                  <span>Support</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="/users/logout" class="dropdown-item">
+                  <i class="ni ni-user-run"></i>
+                  <span>Logout</span>
+                </a>
+              </div>
+            </li>
+            </li>
+
+          </ul>
+
+        </div>
+        </nav> 
+
+
+
+        <div>
+          <img src="https://www.itl.cat/pngfile/big/305-3059667_money-wallpaper-hd-collection-money-3d-hnh-nn.jpg"
+            alt="background" style="min-width:100%; max-height:50%; ">
+        </div>
+
+
+
+
+
+      </body>
+
+      <script>
+
+        function createItem() {
+
+          localStorage.setItem('modelShown', 'NO');
+        }
+        $(document).ready(function () {
+          sessionStorage.removeItem("counter")
+
+        })
+
+      </script>
+
+      </html>
+
+
+      <%- include('change_pass.ejs') %>

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div class="container-fluid mt-100">
+    <h1>Lịch sử giao dịch</h1>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="active-member">
+                        <div class="table-responsive">
+                            <table class="table table-xs mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Loại dịch vụ</th>
+                                        <th>Giá tiền</th>
+                                        <th>Thời gian</th>
+                                        <th>Trạng thái</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% history.forEach((u, index) =>{ %>
+                                            <tr>
+
+                                                <td><%= (index + 1) %></td>
+    
+                                                <td><a href="history-trade/<%= u._id %>" data-id="<%= u._id %>" id="check"><%= u.typetrade %></a></td>
+    
+                                                <td><%= u.value %></td>
+                                                <td> <span class="m-0 pl-3"><%= u.date %></span> </td>
+                                                <% if(u.status == 1){ %>
+                                                    <td>Thành công</td>
+    
+                                                <%}else{ %>
+                                                    <td>Đang đợi duyệt</td>
+    
+                                               <% }  %>
+    
+                                            </tr>
+                                      
+
+
+                                        <% }) %>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $('#check').click(e=>{
+      
+        fetch('http://127.0.0.1:3000/history-trade/'+id,{
+            method: 'GET'
+        })
+        const btn= e.target;
+        const id =  btn.dataset.id
+        .then(res=> res.json())
+        .then(json=>console.log(json))
+        .catch(console.log)
+    })
+</script>
