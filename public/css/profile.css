@@ -2133,5 +2133,7 @@ div#onId {
     margin-bottom: 20px;
   }
 
-
-  
+  .imgID{
+    width:70px; 
+    height:150px;
+  }

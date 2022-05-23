@@ -27,7 +27,6 @@ textarea.form-control {
     margin-bottom: 15px;
 }
 a {
-    background-color: yellow;
     color: red;
     padding: 15px;
     font-size: 17px;
@@ -45,6 +44,7 @@ a {
 .payment-title {
     width: 100%;
     text-align: center;
+    padding-bottom: 3%;
 }
 
 .form-container .field-container:first-of-type {
@@ -116,8 +116,10 @@ input {
     width: 100%;
     max-width: 400px;
     max-height: 251px;
-    height: 54vw;
+    height: 1005;
     padding: 20px;
+    margin-bottom: 100px;
+    margin-right: 40px;
 }
 
 #ccsingle {
@@ -319,13 +321,14 @@ button {
     background-color: rgb(4, 4, 4);
     width: 100px;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 15px;
     color: rgb(238, 235, 235);
     font-size: 15px;
     float: right;
     margin-top: 17px;
     margin-left: 3px;
 }
+
 #cardback .st8 {
     opacity: 0.6;
 }
@@ -387,30 +390,57 @@ button {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
-body{
-    background-color: wheat;
-}
+
 .buttonContainer{
     text-align: center; 
-}
-#pay{
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    color: rgb(255, 255, 255);
-    background-color: rgb(184, 89, 89);
 }
 
 .button{
     margin:0 25% 0 0;
     display:block;
-    background-color: rgb(184, 89, 89);
+    color: black;
+    background-color: rgb(223, 209, 209);
 }
 
-.backCredit{
-    margin: 0 42%;
-    width: 100%;
-    background-color: grey; 
-    color: white; 
+.button:hover{
+    color: #000000;
+}
+.button:active {
+    background-color: #5673d1;
+    box-shadow: 0 5px rgb(0, 0, 0);
+    transform: translateY(4px);
+}
+
+#pay{
     text-decoration: none;
+    margin: 0;
+    padding: 0;
+    color: black;
+    background-color: rgb(223, 209, 209);
+}
+#pay:hover{
+    color: #000000;
+}
+
+
+.backCredit{
+    color: rgb(80, 73, 73); 
+    text-decoration: none;
+}
+.backCredit:hover{
+    color: rgb(200, 208, 233);
+}
+.backCredit:active{
+    font-size: 100%;
+}
+
+.backBtn{
+    margin-bottom: 50px;
+    padding-right: 90%;
+}
+
+.buttonLink{
+    display:block;
+    color: black;
+    background-color: rgb(223, 209, 209);
 }

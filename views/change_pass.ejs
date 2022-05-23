@@ -2,6 +2,26 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<style>
+  .input1{
+    margin-left: 25px;
+  }
+  .input2{
+    margin-left: 45px;
+  }
+  .input3{
+    margin-left: 28px;
+  }
+  label{
+    margin-left: 25px;
+  }
+  button{
+    border-radius: 15px;
+  }
+  .modal-footer{
+    margin-top: 10px;
+  }
+</style>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -27,21 +47,22 @@
               <% if(infor.Nchangepass> 0){ %>
                 <div class="row">
                   <label for="pass">Present Password</label>
-                  <input type="password" name="pass" placeholder="*******" required/>
+                  <input class="input3" type="password" name="pass" placeholder="*******" required/>
                 </div>
                 <% } %>
 
-
+                  <br>
                   <div class="row">
                     <label for="newpass">New Password</label>
-                    <input type="password" name="newpass" placeholder="*******"  required/>
+                    <input class="input2" type="password" name="newpass" placeholder="*******"  required/>
                   </div>
+                  <br>
                   <div class="row">
                     <label for="cfmpass">Confirm Password</label>
-                    <input type="password" name="cfmpass" placeholder="* * * * * *" required />
+                    <input class="input1" type="password" name="cfmpass" placeholder="* * * * * *" required />
 
                   </div>
-                  <div class="modal-footer">
+                  <div class="modal-footer" >
                     <button type="submit" class="btn btn-primary" id="check" onclick="removeItem()">Save changes</button>
                   </div>
         </form>
@@ -62,11 +83,8 @@
 if (x == 1) {
   if(localStorage.getItem('modelShown') == 'NO'){
     $('#myModal').modal({ backdrop: 'static', keyboard: false })
-
   }
-
-
-  }
+}
   $(document).ready(function () {
     if (x == 0) {
       $('#myModal').modal({ backdrop: 'static', keyboard: false })
@@ -77,11 +95,6 @@ if (x == 1) {
   function removeItem() {
         localStorage.removeItem('modelShown', 'NO');
         localStorage.setItem('modelShown', 'TRUE');
-
-
-      }
-
-
-
+  }
 
 </script>

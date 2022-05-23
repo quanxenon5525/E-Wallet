@@ -15,7 +15,7 @@
 
   <link rel="stylesheet" href="/css/profile.css" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <title>Document</title>
+  <title>Profile</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <% var name=infor.name.split(" ") %>
-                  <span class=" mb-0 text-sm font-weight-bold">Hello <%= name[2] %></span>
+                  <span class=" mb-0 text-sm font-weight-bold"><%= infor.name %></span>
                 </div>
               </div>
             </a>
@@ -76,7 +76,7 @@
     </nav>
     <!-- Header -->
     <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
-      style="min-height: 600px; background-image: url(https://raw.githubusercontent.com/creativetimofficial/argon-dashboard/gh-pages/assets-old/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+      style="min-height: 600px; background-image: url(https://wallpaperaccess.com/full/386720.jpg); background-size: cover; background-position: center top;">
       <!-- Mask -->
       <span class="mask bg-gradient-default opacity-8"></span>
       <!-- Header container -->
@@ -139,7 +139,7 @@
                 <div class="col">
                   <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                     <div>
-                      <span class="heading">22</span>
+                      <span class="heading">30</span>
                       <span class="description">Friends</span>
                     </div>
                     <div>
@@ -147,7 +147,7 @@
                       <span class="description">Photos</span>
                     </div>
                     <div>
-                      <span class="heading">89</span>
+                      <span class="heading">999</span>
                       <span class="description">Comments</span>
                     </div>
                   </div>
@@ -155,20 +155,16 @@
               </div>
               <div class="text-center">
                 <h3>
-                  Jessica Jones<span class="font-weight-light">, 27</span>
+                  <%= infor.name %><span class="font-weight-light">, 22</span>
                 </h3>
                 <div class="h5 font-weight-300">
-                  <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                  <i class="ni location_pin mr-2"></i>TPHCM, VietNam
                 </div>
                 <div class="h5 mt-4">
-                  <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-                </div>
-                <div>
-                  <i class="ni education_hat mr-2"></i>University of Computer Science
+                  <i class="ni business_briefcase-24 mr-2"></i>Gold Member
                 </div>
                 <hr class="my-4">
-                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records
-                  all of his own music.</p>
+                <p>The gold member always use digital money to do anything for more and more benefit</p>
                 <H3>ID Cards</H3>
                 <div class="row">
                   <label class="col">On Id Card</label>
@@ -176,14 +172,10 @@
                   <label class="col">Bottom Id Card</label>
                 </div>
                 <div class="row">
-                  <img class="col" id="imageOn" src="<%= infor.OnCard %>"  alt="cmnd" style="width:70px; height:150px;">
-                  <img class="col" id="imageBottom" src="<%= infor.BottomCard %>"  alt="cmnd" style="width:70px; height:150px;">
-
+                  <img class="col imgID" id="imageOn" src="<%= infor.OnCard %>"  alt="cmnd" >
+                  <img class="col imgID" id="imageBottom" src="<%= infor.BottomCard %>"  alt="cmnd" >
                   <!-- <img id="image" /> -->
-
-
-
-                  <!-- <img class="col" src="<%= infor.IdCard %>" alt="cmnd" style="width:70px; height:150px;">                         -->
+                  <!-- <img class="col" src="<%= infor.IdCard %>" alt="cmnd" style="width:70px; height:150px;"> -->
                 </div>
                 <div class="row">
                   <div class="avatar-edit" id="bottomId">
@@ -212,22 +204,12 @@
         </div>
 
 
-
-
-
-
-
-
-
         <div class="col-xl-8 order-xl-1">
           <div class="card bg-secondary shadow">
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
                   <h3 class="mb-0">My account</h3>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="#!" class="btn btn-sm btn-primary">Edit Profile</a>
                 </div>
               </div>
             </div>
@@ -279,21 +261,21 @@
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-city">City</label>
                         <input type="text" id="input-city" class="form-control form-control-alternative"
-                          placeholder="City" value="New York">
+                          placeholder="City" value="Ho Chi Minh">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-country">Country</label>
                         <input type="text" id="input-country" class="form-control form-control-alternative"
-                          placeholder="Country" value="United States">
+                          placeholder="Country" value="Viet Nam">
                       </div>
                     </div>
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-country">Postal code</label>
+                        <label class="form-control-label" for="input-country">Post code</label>
                         <input type="number" id="input-postal-code" class="form-control form-control-alternative"
-                          placeholder="Postal code">
+                          placeholder="Post code">
                       </div>
                     </div>
                   </div>
@@ -305,7 +287,7 @@
                   <div class="form-group focused">
                     <label>About Me</label>
                     <textarea rows="4" class="form-control form-control-alternative"
-                      placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                      placeholder="A few words about you ...">Rich kid</textarea>
                   </div>
                 </div>
               </form>
@@ -319,8 +301,7 @@
     <div class="row align-items-center justify-content-xl-between">
       <div class="col-xl-6 m-auto text-center">
         <div class="copyright">
-          <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon
-              Dashboard</a> by Creative Tim</p>
+          <p>Be confidence with your decisions</p>
         </div>
       </div>
     </div>
