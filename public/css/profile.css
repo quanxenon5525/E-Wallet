@@ -2134,6 +2134,17 @@ div#onId {
   }
 
   .imgID{
-    width:70px; 
-    height:150px;
+    width:180px; 
+    height:210px;
+  }
+
+  .rankProfile{
+    color: rgb(133, 133, 23);
+  }
+
+  .headerProfile{
+    min-height: 600px; 
+    background-image: url(https://wallpaperaccess.com/full/386720.jpg); 
+    background-size: cover; 
+    background-position: center top;
   }

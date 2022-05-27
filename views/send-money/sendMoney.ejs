@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/credit-card/credit-card.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="/js/credit-card/credit-card.js"></script>
-
+<title>Send Money</title>
 <style>
     input{
         border-radius: 15px;
@@ -242,7 +242,6 @@
     }
 
     function AllowOnlyNumbers(e) {
-
         e = (e) ? e : window.event;
         var clipboardData = e.clipboardData ? e.clipboardData : window.clipboardData;
         var key = e.keyCode ? e.keyCode : e.which ? e.which : e.charCode;
@@ -250,4 +249,5 @@
 
         return (/^\d+$/.test(str)); 
     }
+    
 </script>
