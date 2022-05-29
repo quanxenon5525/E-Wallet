@@ -21,7 +21,7 @@ function isAdmin(req, res, next) {
     if (req.isAuthenticated() && req.user.role == "admin") {
       return next();
     }
-    return res.send("Bạn không có quyền truy cập hehe")
+    return res.send("Bạn không có quyền truy cập trang này")
 }
 
 
