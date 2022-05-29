@@ -158,7 +158,7 @@
                                 inputmode="numeric" value="<%= locals.infor.CVV %>">
                         </div>
                         <div class="buttonContainer">
-                            <button type="submit" class="button">
+                            <button type="submit" class="button" id="btnChange">
                                 Change Credit
                             </button>
                         </div>
@@ -185,12 +185,11 @@
                         </div>
                         <div class="field-container">
                             <label for="expirationdate">Expiration (dd/mm/yy)</label>
-                            <input name="expirationdate" id="expirationdate" type="text" pattern="[0-9]*"
-                                inputmode="numeric">
+                            <input name="expirationdate" id="expirationdate" type="date">
                         </div>
                         <div class="field-container">
                             <label for="securitycode">Security Code</label>
-                            <input id="securitycode" name="securitycode" type="text" pattern="[0-9]*"
+                            <input id="securitycode" name="securitycode" type="password" pattern="[0-9]*"
                                 inputmode="numeric">
                         </div>
                         <div class="buttonContainer">
@@ -206,4 +205,5 @@
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href)
     }
+ 
 </script>

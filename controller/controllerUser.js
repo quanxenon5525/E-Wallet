@@ -16,15 +16,24 @@ exports.getLogin =  (req, res, next)=>{
     res.render("../views/login");
 }
 exports.postRegister = async(req, res, next)=>{
+
     const userFound = await User.findOne({ email: req.body.email });
+    const checkphone = await User.findOne({ phone: req.body.phone });
+
     // console.log(userFound)
 
     const email =  req.body.email
+    const phone =  req.body.phone
+
     // console.log(req.body.phone)
     const date_obj = new Date();
     const date = date_obj.toLocaleString()
     if(userFound){
         return res.json({msg:'Email đã tồn tại', success: false})
+
+     }
+     if(checkphone){
+        return res.json({msg:'Phone đã tồn tại', success: false})
 
      }else{
 
@@ -67,7 +76,7 @@ exports.postRegister = async(req, res, next)=>{
                 "BottomCard": req.body.BottomCard,
             },(error, result)=>{
                  if(error){
-                        return res.json({msg:'đăng kí thất bại', success: false})
+                        return res.json({msg:'Đăng kí thất bại', success: false})
 
                      
                 }else{
@@ -323,13 +332,13 @@ exports.postForgotPassword =  async(req, res)=>{
     
     
             const token = jwt.sign(payload, secret, { expiresIn: '15m' })
-            const linkreset = process.env.hostName+`/users/reset-password/${userFound._id}/${token}`
+            const linkreset = process.env.PORT +`/users/reset-password/${userFound._id}/${token}`
             console.log(linkreset)
             let mailOptions = {
                 from: process.env.userMail,
                 to: email,
                 subject: "Recover Password",
-                text: "<a href =:" + linkreset + "/>"
+                html: "<a href ='" + linkreset + "'>Click to reset your password</a>"
     
     
             }
@@ -341,7 +350,7 @@ exports.postForgotPassword =  async(req, res)=>{
                 }
     
             })
-            res.send('password reset link has been sent to email');
+            res.send('Password had been reset, please check the link in your email');
     
         }
 }

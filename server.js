@@ -60,10 +60,10 @@ app.use('/admin', AdminRoutelist)
 app.use('/admin', AdminRouteWalletlist)
 
 
-
+const PORT = process.env.PORT
 
 app.listen(3000, () => {
-    console.log(`Server is running on http://127.0.0.1:3000`);
+    console.log(`Server is running on ${PORT}`);
 });
 
 

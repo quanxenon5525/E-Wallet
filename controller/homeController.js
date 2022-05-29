@@ -26,10 +26,10 @@ exports.getCreditCard = (req, res, next) => {
 }
 exports.postCreditCard = (req, res, next) => {
     const { card, name, expirationdate, securitycode } = req.body;
-    const expDateFormatter = expirationdate.replace(/\//g, "").substring(0, 2) +
-        (expirationdate.length > 2 ? '/' : '') +
-        expirationdate.replace(/\//g, "").substring(2, 4);
-
+    // const expDateFormatter = expirationdate.replace(/\//g, "").substring(0, 2) +
+    //     (expirationdate.length > 2 ? '/' : '') +
+    //     expirationdate.replace(/\//g, "").substring(2, 4);
+    //     console.log(expDateFormatter);
     //   const id =  req.user._id
     //   const userFound = await Credit.findOne({ id });
     // //   console.log(userFound)
@@ -39,7 +39,7 @@ exports.postCreditCard = (req, res, next) => {
 
     //   }else{
     if (card == "111111") {
-        if (expDateFormatter == "10/22") {
+        if (expirationdate == "2022-10-10") {
             if (securitycode == "411") {
 
                 try {
@@ -68,7 +68,7 @@ exports.postCreditCard = (req, res, next) => {
             }
         }
     } else if (card == "222222") {
-        if (expDateFormatter == "11/22") {
+        if (expirationdate == "2022-11-11") {
             if (securitycode == "443") {
 
                 try {
@@ -90,7 +90,7 @@ exports.postCreditCard = (req, res, next) => {
             }
         }
     } else if (card == "333333") {
-        if (expDateFormatter == "12/22") {
+        if (expirationdate == "2022-12-12") {
             if (securitycode == "577") {
 
                 try {
@@ -123,7 +123,7 @@ exports.geteditCreditCard = async(req, res, next) => {
     const id = req.user._id
     const userFound = await Credit.findOne({ id })
     if (userFound) {
-        res.render('../views/credit-card/credit-card', { infor: userFound });
+        res.render('../views/credit-card/credit-card', {infor: userFound });
 
     } else {
 
@@ -134,13 +134,15 @@ exports.geteditCreditCard = async(req, res, next) => {
 }
 exports.posteditCreditCard = async(req, res, next) => {
     const { card, name, expirationdate, securitycode } = req.body;
-    const expDateFormatter = expirationdate.replace(/\//g, "").substring(0, 2) +
-        (expirationdate.length > 2 ? '/' : '') +
-        expirationdate.replace(/\//g, "").substring(2, 4);
+    // const expDateFormatter = expirationdate.replace(/\//g, "").substring(0, 2) +
+    //     (expirationdate.length > 2 ? '/' : '') +
+    //     expirationdate.replace(/\//g, "").substring(2, 4);
     const id = req.user._id
+
+    
     const creditsFound = await Credit.findOne({ id })
     if (card == "111111") {
-        if (expDateFormatter == "10/22") {
+        if (expirationdate == "2022-10-10") {
             if (securitycode == "411") {
 
 
@@ -149,7 +151,7 @@ exports.posteditCreditCard = async(req, res, next) => {
                 }, {
                     $set: {
                         "cardNumber": card,
-                        "ExpiresEnd": expDateFormatter,
+                        "ExpiresEnd": expirationdate,
                         "CVV": securitycode,
                         "idUser": req.user._id,
 
@@ -157,7 +159,7 @@ exports.posteditCreditCard = async(req, res, next) => {
                 }, { upsert: true })
 
                 error = 'Cập nhật thành công'
-                res.render('../views/credit-card/credit-card', { errorMessage: error })
+                res.redirect('/edit-credit-card');
 
 
 
@@ -178,7 +180,7 @@ exports.posteditCreditCard = async(req, res, next) => {
             res.render('../views/credit-card/credit-card', { errorMessage: error })
         }
     } else if (card == "222222") {
-        if (expDateFormatter == "11/22") {
+        if (expirationdate == "2022-11-11") {
             if (securitycode == "443") {
 
 
@@ -188,7 +190,7 @@ exports.posteditCreditCard = async(req, res, next) => {
                 }, {
                     $set: {
                         "cardNumber": card,
-                        "ExpiresEnd": expDateFormatter,
+                        "ExpiresEnd": expirationdate,
                         "CVV": securitycode,
                         "idUser": req.user._id,
 
@@ -196,13 +198,7 @@ exports.posteditCreditCard = async(req, res, next) => {
                 }, { upsert: true })
 
                 error = 'Cập nhật thành công'
-                res.render('../views/credit-card/credit-card', { errorMessage: error })
-
-
-
-
-
-
+                res.redirect('/edit-credit-card');
 
             } else {
 
@@ -217,7 +213,7 @@ exports.posteditCreditCard = async(req, res, next) => {
             res.render('credit-card/credit-card', { errorMessage: error })
         }
     } else if (card == "333333") {
-        if (expDateFormatter == "12/22") {
+        if (expirationdate == "2022-12-12") {
             if (securitycode == "577") {
 
 
@@ -226,7 +222,7 @@ exports.posteditCreditCard = async(req, res, next) => {
                 }, {
                     $set: {
                         "cardNumber": card,
-                        "ExpiresEnd": expDateFormatter,
+                        "ExpiresEnd": expirationdate,
                         "CVV": securitycode,
                         "idUser": req.user._id,
 
@@ -234,14 +230,14 @@ exports.posteditCreditCard = async(req, res, next) => {
                 }, { upsert: true })
 
                 error = 'Cập nhật thành công'
-                res.render('../views/credit-card/credit-card', { errorMessage: error })
+                // const infor = {
+                //     "cardNumber": card,
+                //     "ExpiresEnd": expirationdate,
+                //     "CVV": securitycode,
+                //     "Name": req.user._id,
 
-
-
-
-
-
-
+                // }
+                res.redirect('/edit-credit-card');
             } else {
 
 
@@ -373,27 +369,6 @@ exports.postPayment = async(req, res, next) => {
                     res.render('credit-card/payment', { errorMessage: error })
                 }
             } else if (result[0].cardNumber == 333333) {
-                db.collection('users').updateOne({
-                    _id: id
-                }, {
-                    $set: {
-                        "wallet": 0,
-                    },
-                }, { upsert: true })
-                db.collection('historytrades').insertOne({
-                    typetrade: "Nạp Tiền",
-                    idUser: user._id,
-                    value: valuemoney,
-                    date: date,
-                })
-                db.collection('historytrades').find({ $and: [{ 'idUser': id }, { 'typetrade': 'Nạp Tiền' }, { 'date': date }] }).toArray(async(err, result) => {
-                    db.collection('historyrecharges').insertOne({
-                        idTrade: result[0]._id,
-                        time: date,
-                        CardNumber: "333333",
-                        CardName: nameuser[0].name
-                    })
-                })
 
                 error = 'Nạp tiền thất bại, thẻ hết tiền'
                 res.render('credit-card/payment', { errorMessage: error })
@@ -544,8 +519,10 @@ exports.postWithDraw = async(req, res, next) => {
     const { card, name, expirationdate, securitycode, note, valuemoney } = req.body;
     const id = req.user._id
     const user = await User.findOne({ _id: id })
-    const tmp = parseInt(user.wallet) - valuemoney
-    const wallet = tmp - (tmp * 0.95);
+    const tmp = parseInt(user.wallet) - parseInt(valuemoney);
+    console.log(tmp);
+    const wallet = tmp - (valuemoney * 0.05);
+    console.log(wallet);
     var checkWallet = parseInt(user.wallet) - parseInt(valuemoney)
     let date_ob = new Date();
     const datecheck = date_ob.toLocaleString()
@@ -908,11 +885,19 @@ exports.postSendMoney = async(req, res, next) => {
     const { phone, note, valuemoney, payfee } = req.body;
 
     const id = mongoose.Types.ObjectId(req.user.id)
+    console.log(id);
     const obj_date = new Date();
     var feeuser = parseInt((valuemoney * 5) / 100)
     const date = obj_date.toLocaleString();
     var charset = "0123456789";
     var otp = "";
+     db.collection('users').find({"_id":id}).toArray((err, user) => {
+        if(user[0].phone ==  phone){
+            error = 'Không thể tự chuyển cho chính mình'
+
+            res.render('../views/send-money/sendMoney', {  errorMessage: error }); 
+        }
+    })
     db.collection('users').find({ "phone": phone }).toArray((err, user) => {
         if (parseInt(payfee) == 1) {
             userpayfee = mongoose.Types.ObjectId(req.user.id)

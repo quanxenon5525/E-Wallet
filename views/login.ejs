@@ -46,7 +46,7 @@
               <h3 class="mb-5">SIGN IN YOUR ACCOUNT</h3>
               <% if (messages) { %>
 
-                <div class="alert alert-danger" id="alert" style="display:none;">
+                <div class="alert alert-danger" id="alert">
                   <%= messages.error %>
                 </div>
                 <% } %>
@@ -66,6 +66,8 @@
                 <input type="password"  name="password" class="form-control" placeholder="*******" required/>
                 
               </div>
+              <div id="divCounter"></div>
+              
               <button class="btn btn-primary btn-block" type="submit" onclick="setLocal()" id="btnlogin"  >Login</button>
             </form>
 
@@ -91,17 +93,16 @@
 
 </html>
 <script>
-  console.log(setLocal);
+  // console.log(setLocal);
   if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
   }
   $('#btnlogin').prop('disabled', false)
 
 
-  // setTimeout(function () {
-  //   $('#alert').css("display",'block');
-  // }, 1000);
-
+  setTimeout(function() {
+    $('#alert').fadeOut('fast');
+}, 1000); 
 
   const x = `<%= messages.error %>`
   if (x == "Tài Khoản Bị Khóa 1 Phút!!") {
