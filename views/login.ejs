@@ -46,7 +46,7 @@
               <h3 class="mb-5">SIGN IN YOUR ACCOUNT</h3>
               <% if (messages) { %>
 
-                <div class="alert alert-danger" id="alert">
+                <div class="alert alert-danger" id="alert" style="display:none;">
                   <%= messages.error %>
                 </div>
                 <% } %>
@@ -98,10 +98,9 @@
   $('#btnlogin').prop('disabled', false)
 
 
-
-  setTimeout(function () {
-    $('#alert').fadeOut('fast');
-  }, 1000);
+  // setTimeout(function () {
+  //   $('#alert').css("display",'block');
+  // }, 1000);
 
 
   const x = `<%= messages.error %>`

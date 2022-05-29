@@ -6,7 +6,7 @@ const { db } = require("./models/User");
 function initialize(passport, getUserByUsername, getUserById, x = 0) {
     const authenticateUser = async(username, password, done) => {
         const user = await getUserByUsername(username);
-        console.log(user)
+        // console.log(user)
         if (user == null) {
             return done(null, false, { message: "Tài Khoản Không Tồn Tại" });
         }
@@ -75,16 +75,6 @@ function initialize(passport, getUserByUsername, getUserById, x = 0) {
                   }
   
                 }
-              
-
-
-              
-            
-
-
-
-
-
             }
 
 

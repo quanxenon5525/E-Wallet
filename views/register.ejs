@@ -67,12 +67,12 @@
 
                 <div class="form-outline mb-4">
                   <label for="uploadfileOnCard">Front side ID</label> 
-                  <input type="file" name="uploadfileOnCard" id="uploadfileOnCard" class="form-control IDcard" required/>    
+                  <input type="file" name="uploadfileOnCard" id="uploadfileFrontCard" class="form-control IDcard" required/>    
                 </div>
 
                 <div class="form-outline mb-4">
                   <label for="uploadfileOnCard2">Back side ID</label>  
-                  <input type="file" name="uploadfileOnCard2" id="uploadfileOnCard" class="form-control IDcard" required/>    
+                  <input type="file" name="uploadfileOnCard" id="uploadfileBackCard" class="form-control IDcard" required/>    
                 </div>
 
                 
@@ -123,8 +123,8 @@
     const birthday = document.getElementById('birthday').value;
     const address = document.getElementById('address').value;
 
-    const file = document.querySelector("#uploadfileOnCard").files[0];
-    const file2 = document.querySelector("#uploadfileOnCard").files[1];
+    const file = document.querySelector("#uploadfileFrontCard").files[0];
+    const file2 = document.querySelector("#uploadfileBackCard").files[0];
 
 
     const nameimg = +new Date() + "-" + file.name
@@ -175,78 +175,6 @@
       }).catch(console.error); 
 
   }
-
-
-  // function uploadImageOnCard() {
-  //   const ref = firebase.storage().ref();
-  //   const phone = document.getElementById('phone').value;
-  //   const email = document.getElementById('email').value;
-  //   const name = document.getElementById('name').value;
-  //   const birthday = document.getElementById('birthday').value;
-  //   const address = document.getElementById('address').value;
-
-  //   const file = document.querySelector("#uploadfileOnCard1")
-
-  //   const file2 = document.querySelector("#uploadfileOnCard2")
-
-
-  //   const nameimg = +new Date() + "-" + file.name
-  //   const nameimg2 = +new Date() + "-" + file2.name
-
-  //   const metadata = {
-  //     contentType: file.type,
-  //     contentType: file2.type
-
-  //   };
-
-  //   const task = ref.child(nameimg).put(file, metadata);
-  //   const task2 = ref.child(nameimg2).put(file2, metadata);
-
-  //   task
-  //     .then(snapshot => snapshot.ref.getDownloadURL())
-  //     .then(url => {
-
-
-
-
-  //       task2
-  //         .then(snapshot => snapshot.ref.getDownloadURL())
-  //         .then(url2 => {
-  //           $.ajax({
-  //             url: '/users/register',
-  //             type: 'post',
-  //             data: {
-  //               phone: phone,
-  //               email: email,
-  //               name: name,
-  //               birthday: birthday,
-  //               address: address,
-  //               OnCard: url,
-  //               BottomCard: url2
-  //             }
-  //           }).then(data => {
-  //             if (data.success) {
-  //               alert(data.msg)
-
-  //               window.location.href = "/users/login"
-
-
-  //             } else {
-
-  //               alert(data.msg)
-  //               window.location.href = "/users/register"
-
-
-  //             }
-  //           })
-
-
-  //         }).catch(console.error)
-  //     }).catch(console.error);
-
-
-
-  // }
 
 </script>
 
