@@ -332,7 +332,7 @@ exports.postForgotPassword =  async(req, res)=>{
     
     
             const token = jwt.sign(payload, secret, { expiresIn: '15m' })
-            const linkreset = process.env.PORT +`/users/reset-password/${userFound._id}/${token}`
+            const linkreset = `http://127.0.0.1:`+ process.env.PORT +`/users/reset-password/${userFound._id}/${token}`
             console.log(linkreset)
             let mailOptions = {
                 from: process.env.userMail,

@@ -13,10 +13,6 @@ const homeRoute = require('./routes/home')
 const AdminRoutelist = require('./routes/admin/listActive')
 const AdminRouteWalletlist = require('./routes/admin/listWallet')
 
-
-
-
-
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -60,10 +56,10 @@ app.use('/admin', AdminRoutelist)
 app.use('/admin', AdminRouteWalletlist)
 
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8080
 
-app.listen(3000, () => {
-    console.log(`Server is running on ${PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on http://127.0.0.1:${PORT}`);
 });
 
 
