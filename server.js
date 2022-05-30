@@ -4,9 +4,9 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
-const User = require("./models/User");
+const User = require("./models/user");
 
-var path = require('path');
+var path = require('path'); 
 
 const userRoute = require('./routes/user')
 const homeRoute = require('./routes/home')
