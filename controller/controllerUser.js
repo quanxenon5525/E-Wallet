@@ -76,9 +76,9 @@ exports.postRegister = async(req, res, next)=>{
                 "BottomCard": req.body.BottomCard,
             },(error, result)=>{
                  if(error){
+                        console.log(error);
                         return res.json({msg:'Đăng kí thất bại', success: false})
 
-                     
                 }else{
                     let mailOptions = {
                         from: process.env.userMail,
