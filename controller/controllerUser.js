@@ -195,7 +195,7 @@ exports.postbottomCard = async(req, res, next)=>{
             }, { upsert: true }, (err, result)=>{
                 if(err){
                     console.log(err)
-                    return res.json({msg:'đăng kí thất bại', success: false})
+                    return res.json({msg:'Đăng kí thất bại', success: false})
                 }
                 return res.json({msg: 'Đăng kí thành công', success: true})
             })
@@ -247,7 +247,7 @@ exports.postAvatar =  async(req, res)=>{
         }, { upsert: true }, (err, result)=>{
             if(err){
                 console.log(err)
-                return res.json({msg:'đăng kí thất bại', success: false})
+                return res.json({msg:'Đăng kí thất bại', success: false})
             }
             return res.json({msg: 'Đăng kí thành công', success: true})
         })
