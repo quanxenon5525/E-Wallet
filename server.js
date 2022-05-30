@@ -37,6 +37,7 @@ initializePassport(
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(flash());
+app.set('trust proxy', 1);
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
